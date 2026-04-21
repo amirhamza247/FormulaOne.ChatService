@@ -11,7 +11,7 @@ public class ChatHub : Hub
   public async Task JoinSpecificChatRoom(UserConnection conn)
   {
     await Groups.AddToGroupAsync(Context.ConnectionId, conn.Chatroom);
-    await Clients.Group(conn.Chatroom).SendAsync("ReceiveMessage", "admin", $"{conn.Chatroom} has joined {conn.Chatroom}");
+    await Clients.Group(conn.Chatroom).SendAsync("ReceiveMessage", "admin", $"{conn.Username} has joined {conn.Chatroom}");
   }
 
 
